@@ -2,7 +2,7 @@ const { validationResult } = require('express-validator');
 const bcrypt = require('bcryptjs');
 const HttpError = require('../models/http-error');
 const User = require('../models/user');
-const jwt=require('jsonwebtoken')
+const jwt = require('jsonwebtoken');
 const getUsers = async (req, res, next) => {
   let users;
   try {
@@ -47,7 +47,7 @@ const signup = async (req, res, next) => {
   }
   let hashedpassword;
   try {
-     hashedpassword = await bcrypt.hash(password, 10);
+    hashedpassword = await bcrypt.hash(password, 10);
   } catch (err) {
     const error = new HttpError('Could not create user', 500);
     return next(error);
@@ -70,22 +70,22 @@ const signup = async (req, res, next) => {
     return next(error);
   }
   let token;
-  try{
-
-    token=jwt.sign({userId:createdUser.id,email:createdUser.email},
-      "ssuuppeerrsseeccrreettdonotshareit",{
-expiresIn:'1h'
-  })
-
-}catch(err){
-    const error = new HttpError(
-      'Could not Sign up.',
-    500
+  try {
+    token = jwt.sign(
+      { userId: createdUser.id, email: createdUser.email },
+      'ssuuppeerrsseeccrreettdonotshareit',
+      {
+        expiresIn: '1h',
+      }
     );
+  } catch (err) {
+    const error = new HttpError('Could not Sign up.', 500);
     return next(error);
-  
   }
-  res.status(201).json({userId:createdUser.id,email:createdUser.email,token:token });
+  // console.log(token);
+  res
+    .status(201)
+    .json({ userId: createdUser.id, email: createdUser.email, token: token });
 };
 
 const login = async (req, res, next) => {
@@ -102,17 +102,6 @@ const login = async (req, res, next) => {
     );
     return next(error);
   }
-  let ismatched;
-  try {
-    ismatched = await bcrypt.compare(password, exisiting.password);
-    if (!ismatched) {
-      const err = new Error('Invalid credentials', 422);
-      return next(err);
-    }
-  } catch (err) {
-    const errpr = new Error('Could not log yopu in', 500);
-    return next(error);
-  }
   if (!existingUser) {
     const error = new HttpError(
       'Invalid credentials, could not log you in.',
@@ -120,21 +109,37 @@ const login = async (req, res, next) => {
     );
     return next(error);
   }
-let token;
-try{
-token=jwt.sign({userId:existingUser.id,email:existingUser.email},"ssuuppeerrsseeccrreettdonotshareit",{
-  expiresIn:'1h'
-})}catch(err){
-  const error = new HttpError(
-    'Could not log you in.',
-    500
-  );
-  return next(error);
+  let ismatched;
+  try {
+    ismatched = await bcrypt.compare(password, existingUser.password);
+  } catch (err) {
+    const error = new Error('Could not log you in, Some error might be occurred', 500);
+    return next(error);
+  }
+  if (!ismatched) {
+    const err = new Error('Invalid credentials', 422);
+    return next(err);
+  }
 
-}
-  res.json({
+  let token;
+  try {
+    token = jwt.sign(
+      { userId: existingUser.id, email: existingUser.email },
+      'ssuuppeerrsseeccrreettdonotshareit',
+      {
+        expiresIn: '1h',
+      }
+    );
+  } catch (err) {
+    const error = new HttpError('Could not log you in.', 500);
+    return next(error);
+  }
+  // console.log(token);
+  res.status(201).json({
     message: 'Logged in!',
-    userId:existingUser.id,email:existingUser.email,token:token
+    userId: existingUser.id,
+    email: existingUser.email,
+    token: token,
   });
 };
 
