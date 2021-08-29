@@ -13,7 +13,7 @@ module.exports = (req, res, next) => {
     req.userData = { userId: decodedtoken.userId };
     next();
   } catch (err) {
-    const err = new HttpError('Authentication failed or try logging in again', 401);
-    return next(err);
+    const error = new HttpError('Authentication failed or try logging in again', 401);
+    return next(error);
   }
 };

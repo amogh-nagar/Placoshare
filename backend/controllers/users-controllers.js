@@ -45,7 +45,7 @@ const signup = async (req, res, next) => {
     );
     return next(error);
   }
-  const hashedpassword
+  let hashedpassword;
   try {
      hashedpassword = await bcrypt.hash(password, 10);
   } catch (err) {
@@ -69,7 +69,7 @@ const signup = async (req, res, next) => {
     );
     return next(error);
   }
-  const token;
+  let token;
   try{
 
     token=jwt.sign({userId:createdUser.id,email:createdUser.email},
@@ -110,8 +110,8 @@ const login = async (req, res, next) => {
       return next(err);
     }
   } catch (err) {
-    const err = new Error('Could not log yopu in', 500);
-    return next(err);
+    const errpr = new Error('Could not log yopu in', 500);
+    return next(error);
   }
   if (!existingUser) {
     const error = new HttpError(
@@ -120,7 +120,7 @@ const login = async (req, res, next) => {
     );
     return next(error);
   }
-const token;
+let token;
 try{
 token=jwt.sign({userId:existingUser.id,email:existingUser.email},"ssuuppeerrsseeccrreettdonotshareit",{
   expiresIn:'1h'

@@ -48,7 +48,7 @@ const NewPlace = () => {
     formdata.append('title', formState.inputs.title.value);
     formdata.append('description', formState.inputs.description.value);
     formdata.append('address', formState.inputs.address.value);
-    formdata.append('creator', auth.userId);
+    
     formdata.append('place-image', formState.inputs.placeimage.value);
     try {
       await sendRequest('http://localhost:5000/api/places', 'POST', formdata, {

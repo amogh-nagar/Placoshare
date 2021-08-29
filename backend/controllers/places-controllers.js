@@ -1,4 +1,5 @@
 const uuid = require('uuid/v4');
+const path=require('path')
 const { validationResult } = require('express-validator');
 const mongoose = require('mongoose');
 const fs=require('fs')
@@ -65,7 +66,7 @@ const createPlace = async (req, res, next) => {
     );
   }
 
-  const { title, description, address, creator } = req.body;
+  const { title, description, address } = req.body;
 
   let coordinates;
   try {
@@ -81,12 +82,12 @@ const createPlace = async (req, res, next) => {
     location: coordinates,
     image:req.file.path,
       // 'https://upload.wikimedia.org/wikipedia/commons/thumb/1/10/Empire_State_Building_%28aerial_view%29.jpg/400px-Empire_State_Building_%28aerial_view%29.jpg', // => File Upload module, will be replaced with real image url
-    creator
+    creator:req.userData.userId
   });
 
   let user;
   try {
-    user = await User.findById(creator);
+    user = await User.findById(req.userData.userId);
   } catch (err) {
     const error = new HttpError(
       'Creating place failed, please try again.',
@@ -196,7 +197,7 @@ if(place.creator.id!==req.userData.userId){
     sess.startTransaction();
     place.creator.places.pull(place);
     await place.creator.save({session: sess});
-    fs.unlink(place.image,(err)=>{
+    fs.unlink(path.join(path.dirname(process.mainModule.filename),place.image),(err)=>{
       console.log(err);
     })
     await place.remove({session: sess});

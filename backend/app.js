@@ -50,10 +50,11 @@ app.use((error, req, res, next) => {
 
 mongoose
   .connect(
-    `mongodb+srv://academind:ORlnOPLKvIH9M9hP@cluster0-ntrwp.mongodb.net/mern?retryWrites=true&w=majority`
+    `mongodb+srv://amogh:123amogh@cluster0.jk31m.mongodb.net/Placeosharedatabase?retryWrites=true&w=majority`
   )
   .then(() => {
     app.listen(5000);
+    console.log('Connected!');
   })
   .catch((err) => {
     console.log(err);
