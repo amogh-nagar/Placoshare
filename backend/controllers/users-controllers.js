@@ -45,8 +45,9 @@ const signup = async (req, res, next) => {
     );
     return next(error);
   }
+  const hashedpassword
   try {
-    const hashedpassword = await bcrypt.hash(password, 10);
+     hashedpassword = await bcrypt.hash(password, 10);
   } catch (err) {
     const error = new HttpError('Could not create user', 500);
     return next(error);
@@ -70,9 +71,13 @@ const signup = async (req, res, next) => {
   }
   const token;
   try{
-  token=jwt.sign({userId:createdUser.id,email:createdUser.email},"ssuuppeerrsseeccrreettdonotshareit",{
-    expiresIn:'1h'
-  })}catch(err){
+
+    token=jwt.sign({userId:createdUser.id,email:createdUser.email},
+      "ssuuppeerrsseeccrreettdonotshareit",{
+expiresIn:'1h'
+  })
+
+}catch(err){
     const error = new HttpError(
       'Could not Sign up.',
     500

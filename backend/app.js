@@ -12,6 +12,7 @@ const HttpError = require('./models/http-error');
 const app = express();
 
 app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({ extended: true }));
 
 app.use('/uploads/images', express.static(path.join('uploads', 'images')));
 
@@ -36,7 +37,7 @@ app.use((req, res, next) => {
 
 app.use((error, req, res, next) => {
   if (req.file) {
-    fs.unlink(req.file.path, err => {
+    fs.unlink(req.file.path, (err) => {
       console.log(err);
     });
   }
@@ -54,6 +55,6 @@ mongoose
   .then(() => {
     app.listen(5000);
   })
-  .catch(err => {
+  .catch((err) => {
     console.log(err);
   });
