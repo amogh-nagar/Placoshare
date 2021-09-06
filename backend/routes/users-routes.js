@@ -25,4 +25,8 @@ router.post(
 
 router.post('/login', usersController.login);
 
+router.post('/reset',usersController.reset)
+
+router.post('/new-password',usersController.newpassword)
+
 module.exports = router;
