@@ -152,7 +152,7 @@ const Auth = () => {
             {isLoginMode ? 'LOGIN' : 'SIGNUP'}
           </Button>
         </form>
-        <Link to="/reset">Reset password</Link>
+        <Link className="resetlink" to="/reset">Reset password</Link>
         <Button inverse onClick={switchModeHandler}>
           SWITCH TO {isLoginMode ? 'SIGNUP' : 'LOGIN'}
         </Button>

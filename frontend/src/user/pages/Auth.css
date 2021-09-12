@@ -13,3 +13,20 @@
 .authentication form {
   margin-bottom: 1rem;
 }
+
+
+.resetlink{
+  
+  font: inherit;
+  padding: 0.5rem 1.5rem;
+  border: 1px solid  #03a5fc;
+  border-radius: 4px;
+  background:  #03a5fc;
+  color: white;
+  cursor: pointer;
+  margin-right: 15px;
+  margin-bottom:5px ;
+  text-decoration: none;
+  display: inline-block;
+
+}

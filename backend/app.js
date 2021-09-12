@@ -1,6 +1,6 @@
 const fs = require('fs');
 const path = require('path');
-
+require('dotenv').config()
 const express = require('express');
 const bodyParser = require('body-parser');
 const mongoose = require('mongoose');
@@ -50,8 +50,8 @@ app.use((error, req, res, next) => {
 
 mongoose
   .connect(
-    `mongodb+srv://amogh:123amogh@cluster0.jk31m.mongodb.net/Placeosharedatabase?retryWrites=true&w=majority`
-  )
+process.env.mongodb
+    )
   .then(() => {
     app.listen(5000);
     console.log('Connected!');
