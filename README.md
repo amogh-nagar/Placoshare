@@ -9,7 +9,6 @@ Then here You can see..
 
 
 ## Demo
-![Demo](https://user-images.githubusercontent.com/66239105/132993257-1560082d-b80d-482b-81bd-12398d30f50c.mp4)
 <video src='https://user-images.githubusercontent.com/66239105/132993257-1560082d-b80d-482b-81bd-12398d30f50c.mp4' width=180/>
 
 ## Installation
