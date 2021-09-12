@@ -9,7 +9,8 @@ Then here You can see..
 
 
 ## Demo
-<video src='./assests/place-o-share.mp4' width=180/>
+https://github.com/Amoghtech/Placoshare/blob/master/assets/place-o-share.mp4
+<video src='https://github.com/Amoghtech/Placoshare/blob/master/assets/place-o-share.mp4' width=180/>
 
 ## Installation
 
