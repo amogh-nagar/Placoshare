@@ -122,7 +122,7 @@ const createPlace = async (req, res, next) => {
     );
     return next(error);
   }
-  io.getio().emit("places", {
+  io.getio().broadcast.emit("places", {
     action: "create",
     place: createPlace,
     user:user
