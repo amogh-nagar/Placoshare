@@ -21,12 +21,13 @@ npm start
 ## Tech Stack Used 
 
 <ul>
-<li>NodeJS</li>
-<li>ReactJS</li>
-<li>Expressjs</li>
-<li>MongoDB</li>
-<li>Google APIS</li>
-<li>React-Context</li>
+<li>NodeJS - A JS Run Time Environment Used For Backend</li>
+<li>ReactJS - A JS Library Used For Frontend/UI</li>
+<li>Expressjs -  A Nodejs Framework</li>
+<li>MongoDB -  As a Database</li>
+<li>Google MAP API - For rendering map</li>
+<li>Geocoding API -  For geocoding </li>
+<li>Socket.io</li>
 </ul>
 
 
