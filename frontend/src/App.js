@@ -1,4 +1,6 @@
 import React, { useState, useCallback, useEffect } from "react";
+import openSocket from 'socket.io-client';
+
 import {
   BrowserRouter as Router,
   Route,
