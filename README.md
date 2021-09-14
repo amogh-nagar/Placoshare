@@ -60,7 +60,7 @@ npm start
 
 ```
 
-## License 
+## 🖨 License 
 <p align="center">
 <a href="https://github.com/Amoghtech/Placoshare/blob/master/LICENSE">
 <h5 align="center"><b>MIT License</b></a> 
