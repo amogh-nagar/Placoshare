@@ -2,14 +2,14 @@
 
 A web app where you can share different places all around the world
 
-## Description
+## 📌 Description
 
 Bored in lockdown? Want to see amazing places all around the world? 
 Then here You can see..
 
 
 
-## Setup
+## 📌 Setup
 
 ```bash
 npm install
@@ -18,7 +18,7 @@ npm start
 ```
 
 
-## Tech Stack Used 
+## 📌 Tech Stack Used 
 
 <ul>
 <li>NodeJS - A JS Run Time Environment Used For Backend</li>
@@ -31,15 +31,15 @@ npm start
 </ul>
 
 
-## Usage
+## 📌 Usage
 ```
 # A web app where you can share different places all around the world
 ```
 
 
-## Backend-APIS
+## 📌 Backend-APIS
 
-### For Places
+### 💻 For Places
 ```
 
 # GET- {Host_Name}/api/places/:pid - Get Place By PlaceID
@@ -50,7 +50,7 @@ npm start
 
 ```
 
-### For Users
+### 💻 For Users
 ```
 
 # GET- {Host_Name}/api/users - Get All users
@@ -61,5 +61,14 @@ npm start
 ```
 
 
-## Demo
+## 💻 Demo
 <video src='https://user-images.githubusercontent.com/66239105/132993257-1560082d-b80d-482b-81bd-12398d30f50c.mp4' width=180/>
+
+
+
+
+## License 
+<p align="center">
+<a href="https://github.com/Amoghtech/Placoshare/blob/master/LICENSE">
+<img width=35% src="https://media.tenor.com/images/68ecdcb63296f1db6532bf5b83051da9/tenor.gif"></p>
+<h5 align="center"><b>MIT License</b></a> 
