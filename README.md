@@ -27,7 +27,7 @@ npm start
 <li>MongoDB -  As a Database</li>
 <li>Google MAP API - For rendering map</li>
 <li>Geocoding API -  For geocoding </li>
-<li>Socket.io</li>
+<li>Socket.io - For Websockets(that connects frontend and backend via event based communication)</li>
 </ul>
 
 
