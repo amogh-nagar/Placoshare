@@ -11,6 +11,11 @@ const HttpError = require("./models/http-error");
 
 const app = express();
 
+//Necessary for heroku
+const compression=require('compression')
+app.use(compression())
+
+
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 
