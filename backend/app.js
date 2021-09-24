@@ -11,14 +11,6 @@ const HttpError = require("./models/http-error");
 
 const app = express();
 
-//Necessary for heroku
-const compression=require('compression')
-const helmet=require('helmet')
-const morgan=require('morgan')
-app.use(compression())
-const access=fs.createWriteStream(path.join(__dirname,'access.log'),{flags:'a'})
-app.use(helmet())
-app.use(morgan('combined',{stream:access}))//logging requests
 
 
 app.use(bodyParser.json());

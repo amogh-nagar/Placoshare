@@ -1,5 +1,5 @@
-import React, { useState, useCallback, useEffect } from "react";
-import openSocket from 'socket.io-client';
+import React, { Suspense, useState, useCallback, useEffect } from "react";
+import openSocket from "socket.io-client";
 
 import {
   BrowserRouter as Router,
@@ -8,16 +8,20 @@ import {
   Switch,
 } from "react-router-dom";
 
-import Users from "./user/pages/Users";
-import NewPlace from "./places/pages/NewPlace";
-import UserPlaces from "./places/pages/UserPlaces";
-import UpdatePlace from "./places/pages/UpdatePlace";
-import Auth from "./user/pages/Auth";
 import MainNavigation from "./shared/components/Navigation/MainNavigation";
 import { AuthContext } from "./shared/context/auth-context";
 import { useAuth } from "./shared/hooks/auth-hook";
-import Reset from "./user/pages/Reset";
-import Newpass from "./user/pages/New-pass";
+import LoadingSpinner from "./shared/components/UIElements/LoadingSpinner";
+
+//Lazy Loading
+const Users = React.lazy(() => import("./user/pages/Users"));
+const UserPlaces = React.lazy(() => import("./places/pages/UserPlaces"));
+const UpdatePlace = React.lazy(() => import("./places/pages/UpdatePlace"));
+const NewPlace = React.lazy(() => import("./places/pages/NewPlace"));
+const Auth = React.lazy(() => import("./user/pages/Auth"));
+const Reset = React.lazy(() => import("./user/pages/Reset"));
+const Newpass = React.lazy(() => import("./user/pages/New-pass"));
+
 const App = () => {
   const { login, logout, token, userId } = useAuth();
   let routes;
@@ -75,7 +79,17 @@ const App = () => {
     >
       <Router>
         <MainNavigation />
-        <main>{routes}</main>
+        <main>
+          <Suspense
+            fallback={
+              <div className="center">
+                <LoadingSpinner />
+              </div>
+            }
+          >
+            {routes}
+          </Suspense>
+        </main>
       </Router>
     </AuthContext.Provider>
   );

@@ -11,7 +11,7 @@ async function getCoordsForAddress(address) {
       address
     )}&key=${API_KEY}`
   );
-  console.log(response);
+  // console.log(response);
   const data = response.data;
   if (data.status.code !== 200) {
     const error = new HttpError(

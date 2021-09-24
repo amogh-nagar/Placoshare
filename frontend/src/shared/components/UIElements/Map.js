@@ -1,26 +1,30 @@
 import React, { useRef, useEffect } from "react";
-import { Map, GoogleApiWrapper } from "google-maps-react";
 import "./Map.css";
-
-const mapstyles = {
-  width: "100%",
-  height: "100%",
-};
 
 const Mapw = (props) => {
   const mapRef = useRef();
 
   const { center, zoom } = props;
-console.log(center);
+  // console.log(center);
   useEffect(() => {
     const map = new window.google.maps.Map(mapRef.current, {
       center: center,
       zoom: zoom,
     });
+    const infowindow = new window.google.maps.InfoWindow({
+      content: props.description,
+    });
     console.log(map);
-    new window.google.maps.Marker({
-      position:center,
+    const marker = new window.google.maps.Marker({
+      position: center,
       map: map,
+    });
+    marker.addListener("click", () => {
+      infowindow.open({
+        anchor: marker,
+        map,
+        shouldFocus: false,
+      });
     });
   }, [center, zoom]);
 
