@@ -36,6 +36,133 @@ npm start
 # A web app where you can share different places all around the world
 ```
 
+<br>
+
+## Feature work
+<ol>
+<li> Real Time Chat - <br> Chatting with users all around the world</li>
+<li> 3D models of places - <br> Adding 3D models of places so that user can feel like they are standing there</li>
+<li> Adding Machine Learning model - <br> Will add ML model to rate Places/Posts on the basis of number of users who visit that Post/Places</li>
+</ol>
+
+<br>
+
+## Frontend structure
+```
+📦frontend
+ ┣ 📂public
+ ┃ ┣ 📜favicon.ico
+ ┃ ┣ 📜index.html
+ ┃ ┣ 📜manifest.json
+ ┃ ┗ 📜robots.txt
+ ┣ 📂src
+ ┃ ┣ 📂places
+ ┃ ┃ ┣ 📂components
+ ┃ ┃ ┃ ┣ 📜PlaceItem.css
+ ┃ ┃ ┃ ┣ 📜PlaceItem.js
+ ┃ ┃ ┃ ┣ 📜PlaceList.css
+ ┃ ┃ ┃ ┗ 📜PlaceList.js
+ ┃ ┃ ┗ 📂pages
+ ┃ ┃ ┃ ┣ 📜NewPlace.js
+ ┃ ┃ ┃ ┣ 📜PlaceForm.css
+ ┃ ┃ ┃ ┣ 📜UpdatePlace.js
+ ┃ ┃ ┃ ┗ 📜UserPlaces.js
+ ┃ ┣ 📂shared
+ ┃ ┃ ┣ 📂components
+ ┃ ┃ ┃ ┣ 📂FormElements
+ ┃ ┃ ┃ ┃ ┣ 📜Button.css
+ ┃ ┃ ┃ ┃ ┣ 📜Button.js
+ ┃ ┃ ┃ ┃ ┣ 📜ImageUpload.css
+ ┃ ┃ ┃ ┃ ┣ 📜ImageUpload.js
+ ┃ ┃ ┃ ┃ ┣ 📜Input.css
+ ┃ ┃ ┃ ┃ ┗ 📜Input.js
+ ┃ ┃ ┃ ┣ 📂Navigation
+ ┃ ┃ ┃ ┃ ┣ 📜MainHeader.css
+ ┃ ┃ ┃ ┃ ┣ 📜MainHeader.js
+ ┃ ┃ ┃ ┃ ┣ 📜MainNavigation.css
+ ┃ ┃ ┃ ┃ ┣ 📜MainNavigation.js
+ ┃ ┃ ┃ ┃ ┣ 📜NavLinks.css
+ ┃ ┃ ┃ ┃ ┣ 📜NavLinks.js
+ ┃ ┃ ┃ ┃ ┣ 📜SideDrawer.css
+ ┃ ┃ ┃ ┃ ┗ 📜SideDrawer.js
+ ┃ ┃ ┃ ┗ 📂UIElements
+ ┃ ┃ ┃ ┃ ┣ 📜Avatar.css
+ ┃ ┃ ┃ ┃ ┣ 📜Avatar.js
+ ┃ ┃ ┃ ┃ ┣ 📜Backdrop.css
+ ┃ ┃ ┃ ┃ ┣ 📜Backdrop.js
+ ┃ ┃ ┃ ┃ ┣ 📜Card.css
+ ┃ ┃ ┃ ┃ ┣ 📜Card.js
+ ┃ ┃ ┃ ┃ ┣ 📜ErrorModal.js
+ ┃ ┃ ┃ ┃ ┣ 📜LoadingSpinner.css
+ ┃ ┃ ┃ ┃ ┣ 📜LoadingSpinner.js
+ ┃ ┃ ┃ ┃ ┣ 📜Map.css
+ ┃ ┃ ┃ ┃ ┣ 📜Map.js
+ ┃ ┃ ┃ ┃ ┣ 📜Modal.css
+ ┃ ┃ ┃ ┃ ┗ 📜Modal.js
+ ┃ ┃ ┣ 📂context
+ ┃ ┃ ┃ ┗ 📜auth-context.js
+ ┃ ┃ ┣ 📂hooks
+ ┃ ┃ ┃ ┣ 📜auth-hook.js
+ ┃ ┃ ┃ ┣ 📜form-hook.js
+ ┃ ┃ ┃ ┗ 📜http-hook.js
+ ┃ ┃ ┗ 📂util
+ ┃ ┃ ┃ ┗ 📜validators.js
+ ┃ ┣ 📂user
+ ┃ ┃ ┣ 📂components
+ ┃ ┃ ┃ ┣ 📜UserItem.css
+ ┃ ┃ ┃ ┣ 📜UserItem.js
+ ┃ ┃ ┃ ┣ 📜UsersList.css
+ ┃ ┃ ┃ ┗ 📜UsersList.js
+ ┃ ┃ ┗ 📂pages
+ ┃ ┃ ┃ ┣ 📜Auth.css
+ ┃ ┃ ┃ ┣ 📜Auth.js
+ ┃ ┃ ┃ ┣ 📜New-pass.js
+ ┃ ┃ ┃ ┣ 📜Reset.js
+ ┃ ┃ ┃ ┗ 📜Users.js
+ ┃ ┣ 📜App.js
+ ┃ ┣ 📜index.css
+ ┃ ┗ 📜index.js
+ ┣ 📜.firebaserc
+ ┣ 📜.gitignore
+ ┣ 📜firebase.json
+ ┣ 📜package-lock.json
+ ┗ 📜package.json
+
+```
+
+## Backend structure
+```
+📦backend
+ ┣ 📂controllers
+ ┃ ┣ 📜places-controllers.js
+ ┃ ┗ 📜users-controllers.js
+ ┣ 📂middleware
+ ┃ ┣ 📜.DS_Store
+ ┃ ┣ 📜check-auth,.js
+ ┃ ┗ 📜file-upload.js
+ ┣ 📂models
+ ┃ ┣ 📜http-error.js
+ ┃ ┣ 📜place.js
+ ┃ ┗ 📜user.js
+ ┣ 📂routes
+ ┃ ┣ 📜places-routes.js
+ ┃ ┗ 📜users-routes.js
+ ┣ 📂uploads
+ ┃ ┗ 📂images
+ ┃ ┃ ┣ 📜.DS_Store
+ ┃ ┃ ┣ 📜3d1e619c-b95a-4234-98ab-04bec5bcc612.jpeg
+ ┃ ┃ ┗ 📜cc474b26-c8d2-4337-a634-70a19684f6b9.png
+ ┣ 📂util
+ ┃ ┗ 📜location.js
+ ┣ 📜.env
+ ┣ 📜.gitignore
+ ┣ 📜app.js
+ ┣ 📜package-lock.json
+ ┣ 📜package.json
+ ┣ 📜Procfile
+ ┗ 📜socket.js
+
+```
 
 ## 📌 Backend-APIS
 
@@ -59,9 +186,6 @@ npm start
 # POST - [{Host_Name}](https://placeoshare.herokuapp.com/)/api/users/reset -  Reset password
 
 ```
-
-
-
 
 
 
