@@ -9,6 +9,9 @@ import Input from "../../shared/components/FormElements/Input";
 import { useForm } from "../../shared/hooks/form-hook";
 import { useHistory } from "react-router";
 import { VALIDATOR_MINLENGTH } from "../../shared/util/validators";
+import "./Auth.css"
+
+
 const Newpass = () => {
   const { isLoading, error, sendRequest, clearError } = useHttpClient();
   const params = useParams();
@@ -27,7 +30,7 @@ const Newpass = () => {
     event.preventDefault();
     try {
       const responseData = await sendRequest(
-        "http://localhost:5000/api/users/new-password",
+        "https://placeoshare.herokuapp.com/api/users/new-password",
         "POST",
         JSON.stringify({
           password: formState.inputs.password.value,

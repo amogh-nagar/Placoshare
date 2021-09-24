@@ -14,7 +14,7 @@ const Users = () => {
     const fetchUsers = async () => {
       try {
         const responseData = await sendRequest(
-          "http://localhost:5000/api/users"
+          "https://placeoshare.herokuapp.com/api/users"
         );
         setLoadedUsers(responseData.users);
         console.log("response", responseData.users);
@@ -23,7 +23,7 @@ const Users = () => {
     fetchUsers();
   }, [sendRequest]);
   useEffect(() => {
-    const socket = openSocket("http://localhost:5000", {
+    const socket = openSocket("https://placeoshare.herokuapp.com", {
       transports: ["websocket"],
     });
 
@@ -32,7 +32,7 @@ const Users = () => {
       if (data.action === "create") {
         console.log("inside", loadedUsers);
 
-        const response = await fetch("http://localhost:5000/api/users");
+        const response = await fetch("https://placeoshare.herokuapp.com/api/users");
         const responseData = await response.json();
         const updateduser = [...responseData.users];
 

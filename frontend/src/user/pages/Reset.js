@@ -8,6 +8,7 @@ import ErrorModal from "../../shared/components/UIElements/ErrorModal";
 import Input from "../../shared/components/FormElements/Input";
 import { useForm } from "../../shared/hooks/form-hook";
 import { useHistory } from "react-router";
+import "./Auth.css"
 const Reset = () => {
   const { isLoading, error, sendRequest, clearError } = useHttpClient();
 const history=useHistory()
@@ -25,7 +26,7 @@ const history=useHistory()
     event.preventDefault();
     try {
       const responseData = await sendRequest(
-        "http://localhost:5000/api/users/reset",
+        "https://placeoshare.herokuapp.com/api/users/reset",
         "POST",
         JSON.stringify({
           email: formState.inputs.email.value,

@@ -71,7 +71,7 @@ const Auth = () => {
     if (isLoginMode) {
       try {
         const responseData = await sendRequest(
-          "http://localhost:5000/api/users/login",
+          "https://placeoshare.herokuapp.com/api/users/login",
           "POST",
           JSON.stringify({
             email: formState.inputs.email.value,
@@ -93,7 +93,7 @@ const Auth = () => {
         formData.append("password", formState.inputs.password.value);
         formData.append("image", formState.inputs.image.value);
         const responseData = await sendRequest(
-          "http://localhost:5000/api/users/signup",
+          "https://placeoshare.herokuapp.com/api/users/signup",
           "POST",
           formData
         );
