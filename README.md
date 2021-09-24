@@ -42,21 +42,21 @@ npm start
 ### 💻 For Places
 ```
 
-# GET- {Host_Name}/api/places/:pid - Get Place By PlaceID
-# GET - {Host_Name}/api/places/user/:uid - Get Place By UserID
-# POST - {Host_Name}/api/places - Add a Place
-# PATCH - {Host_Name}/api/places/:pid -  Update a Place
-# DELETE - {Host_Name}/api/places/:pid -  Delete a Place
+# GET- [{Host_Name}](https://placeoshare.herokuapp.com/)/api/places/:pid - Get Place By PlaceID
+# GET - [{Host_Name}](https://placeoshare.herokuapp.com/)/api/places/user/:uid - Get Place By UserID
+# POST - [{Host_Name}](https://placeoshare.herokuapp.com/)/api/places - Add a Place
+# PATCH - [{Host_Name}](https://placeoshare.herokuapp.com/)/api/places/:pid -  Update a Place
+# DELETE - [{Host_Name}](https://placeoshare.herokuapp.com/)/api/places/:pid -  Delete a Place
 
 ```
 
 ### 💻 For Users
 ```
 
-# GET- {Host_Name}/api/users - Get All users
-# POST - {Host_Name}/api/users/signup - Signup a user
-# POST - {Host_Name}/api/users/login - Login a user
-# POST - {Host_Name}/api/users/reset -  Reset password
+# GET- [{Host_Name}](https://placeoshare.herokuapp.com/)/api/users - Get All users
+# POST - [{Host_Name}](https://placeoshare.herokuapp.com/)/api/users/signup - Signup a user
+# POST - [{Host_Name}](https://placeoshare.herokuapp.com/)/api/users/login - Login a user
+# POST - [{Host_Name}](https://placeoshare.herokuapp.com/)/api/users/reset -  Reset password
 
 ```
 
