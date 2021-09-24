@@ -1,5 +1,4 @@
-import React, { Suspense, useState, useCallback, useEffect } from "react";
-import openSocket from "socket.io-client";
+import React, { Suspense} from "react";
 
 import {
   BrowserRouter as Router,
@@ -12,6 +11,7 @@ import MainNavigation from "./shared/components/Navigation/MainNavigation";
 import { AuthContext } from "./shared/context/auth-context";
 import { useAuth } from "./shared/hooks/auth-hook";
 import LoadingSpinner from "./shared/components/UIElements/LoadingSpinner";
+
 
 //Lazy Loading
 const Users = React.lazy(() => import("./user/pages/Users"));
