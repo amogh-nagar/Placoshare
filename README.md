@@ -40,7 +40,7 @@ npm start
 <ol>
 <li> Real Time Chat - <br> Chatting with users all around the world</li>
 <li> 3D models of places - <br> Adding 3D models of places so that user can feel like they are standing there</li>
-<li> Adding Machine Learning model - <br> Will add ML model to rate Places/Posts on the basis of number of users who visit that Post/Places</li>
+<li> Adding Machine Learning model - <br> Will add ML model to rate Places/Posts on the basis of number of users visited that Post/Places</li>
 </ol>
 
 <br>
