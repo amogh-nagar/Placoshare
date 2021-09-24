@@ -5,16 +5,6 @@ const HttpError = require("../models/http-error");
 const User = require("../models/user");
 const jwt = require("jsonwebtoken");
 const nodemailer = require("nodemailer");
-const sendgridtransport = require("nodemailer-sendgrid-transport");
-
-// const transporter = nodemailer.createTransport(
-//   sendgridtransport({
-//     auth: {
-//       api_key:
-//         "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",
-//     },
-//   })
-// );
 
 const transporter = nodemailer.createTransport({
   service: "gmail",
@@ -109,9 +99,25 @@ const signup = async (req, res, next) => {
     return next(error);
   }
 
-  res
-    .status(201)
-    .json({ userId: createdUser.id, email: createdUser.email, token: token });
+  transporter
+    .sendMail({
+      to: email,
+      from: "amoghnagar1111@gmail.com",
+      subject: "Signup Succedded!",
+      html: "<h1>You successfully signed up</h1>",
+    })
+    .then(() => {
+      res
+        .status(201)
+        .json({
+          userId: createdUser.id,
+          email: createdUser.email,
+          token: token,
+        });
+    })
+    .catch((err) => {
+      console.log(err);
+    });
 };
 
 const login = async (req, res, next) => {
@@ -163,23 +169,12 @@ const login = async (req, res, next) => {
     const error = new HttpError("Could not log you in.", 500);
     return next(error);
   }
-  // console.log(token);
-  transporter
-    .sendMail({
-      to: email,
-      from: "amoghnagar1111@gmail.com",
-      subject: "Signup Succedded!",
-      html: "<h1>You successfully signed up</h1>",
-    })
-    .then(() => {
-      console.log("Sent!");
-      res.status(201).json({
-        message: "Logged in!",
-        userId: existingUser.id,
-        email: existingUser.email,
-        token: token,
-      });
-    });
+  res.status(201).json({
+    message: "Logged in!",
+    userId: existingUser.id,
+    email: existingUser.email,
+    token: token,
+  });
 };
 
 const reset = (req, res, next) => {
@@ -213,7 +208,7 @@ const reset = (req, res, next) => {
   <p>CLick this <a href="http://localhost:3000/reset/${token}">link</a> to set a new password</p>
   `,
         });
-        console.log('Sent!');
+        console.log("Sent!");
         res.status(200).json({
           message: "Email sent succesfully",
         });
