@@ -45,7 +45,7 @@ const Newpass = () => {
   };
 
   return (
-    <React.Fragment>
+    <>
       <ErrorModal error={error} onClear={clearError} />
       <Card className="authentication">
         {isLoading && <LoadingSpinner asOverlay />}
@@ -66,7 +66,7 @@ const Newpass = () => {
           </Button>
         </form>
       </Card>
-    </React.Fragment>
+    </>
   );
 };
 

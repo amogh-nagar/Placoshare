@@ -86,7 +86,6 @@ const createPlace = async (req, res, next) => {
     address,
     location: coordinates,
     image: req.file.path,
-    // 'https://upload.wikimedia.org/wikipedia/commons/thumb/1/10/Empire_State_Building_%28aerial_view%29.jpg/400px-Empire_State_Building_%28aerial_view%29.jpg', // => File Upload module, will be replaced with real image url
     creator: req.userData.userId,
   });
 
@@ -106,13 +105,11 @@ const createPlace = async (req, res, next) => {
     return next(error);
   }
 
-  // console.log(user);
-
   try {
     const sess = await mongoose.startSession();
     sess.startTransaction();
     await createdPlace.save({ session: sess });
-    user.places.push(createdPlace);
+    user.places.push(createdPlace)
     await user.save({ session: sess });
     await sess.commitTransaction();
   } catch (err) {

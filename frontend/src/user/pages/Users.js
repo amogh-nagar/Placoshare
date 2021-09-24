@@ -49,7 +49,7 @@ const Users = () => {
 
   }, []);
   return (
-    <React.Fragment>
+    <>
       <ErrorModal error={error} onClear={clearError} />
       {isLoading && (
         <div className="center">
@@ -57,7 +57,7 @@ const Users = () => {
         </div>
       )}
       {!isLoading && loadedUsers && <UsersList items={loadedUsers} />}
-    </React.Fragment>
+    </>
   );
 };
 

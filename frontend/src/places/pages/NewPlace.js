@@ -59,7 +59,7 @@ const NewPlace = () => {
   };
 
   return (
-    <React.Fragment>
+    <>
       <ErrorModal error={error} onClear={clearError} />
       <form className='place-form' onSubmit={placeSubmitHandler}>
         {isLoading && <LoadingSpinner asOverlay />}
@@ -98,7 +98,7 @@ const NewPlace = () => {
           ADD PLACE
         </Button>
       </form>
-    </React.Fragment>
+    </>
   );
 };
 
