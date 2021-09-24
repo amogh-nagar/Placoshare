@@ -4,10 +4,8 @@ A web app where you can share different places all around the world
 
 ## 📌 Description
 
-Bored in lockdown? Want to see amazing places all around the world? 
+Bored in lockdown? Want to see amazing places all around the world?
 Then here You can see..
-
-
 
 ## 📌 Setup
 
@@ -17,8 +15,7 @@ npm install
 npm start
 ```
 
-
-## 📌 Tech Stack Used 
+## 📌 Tech Stack Used
 
 <ul>
 <li>NodeJS - A JS Run Time Environment Used For Backend</li>
@@ -30,8 +27,8 @@ npm start
 <li>Socket.io - For Websockets(that connects frontend and backend via event based communication)</li>
 </ul>
 
-
 ## 📌 Usage
+
 ```
 # A web app where you can share different places all around the world
 ```
@@ -39,6 +36,7 @@ npm start
 <br>
 
 ## Feature work
+
 <ol>
 <li> Real Time Chat - <br> Chatting with users all around the world</li>
 <li> 3D models of places - <br> Adding 3D models of places so that user can feel like they are standing there</li>
@@ -48,6 +46,7 @@ npm start
 <br>
 
 ## Frontend structure
+
 ```
 📦frontend
  ┣ 📂public
@@ -131,6 +130,7 @@ npm start
 ```
 
 ## Backend structure
+
 ```
 📦backend
  ┣ 📂controllers
@@ -167,6 +167,7 @@ npm start
 ## 📌 Backend-APIS
 
 ### 💻 For Places
+
 ```
 
 # GET- [{Host_Name}](https://placeoshare.herokuapp.com/)/api/places/:pid - Get Place By PlaceID
@@ -178,6 +179,7 @@ npm start
 ```
 
 ### 💻 For Users
+
 ```
 
 # GET- [{Host_Name}](https://placeoshare.herokuapp.com/)/api/users - Get All users
@@ -187,18 +189,24 @@ npm start
 
 ```
 
+## Challenges faced
 
+While developing a developer will surely face many challenges, some of them that i faced were -
 
+<ol>
+<li>How to add Web sockets on a HTTP server</li>
+<li>How to integrate Google maps API</li>
+<li>How to send email using Nodemailer</li>
+</ol>
 
+<br>
 
-## 🖨 License 
+## 🖨 License
+
 <p align="center">
 <a href="https://github.com/Amoghtech/Placoshare/blob/master/LICENSE">
-<h5 align="center"><b>MIT License</b></a> 
-
+<h5 align="center"><b>MIT License</b></a>
 
 ## 💻 Demo
+
 <video src='https://user-images.githubusercontent.com/66239105/132993257-1560082d-b80d-482b-81bd-12398d30f50c.mp4' width=180/>
-
-
-
