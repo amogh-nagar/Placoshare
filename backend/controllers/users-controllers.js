@@ -205,7 +205,7 @@ const reset = (req, res, next) => {
           subject: "Password reset",
           html: `
   <p>You requested password reset</p>
-  <p>CLick this <a href="http://localhost:3000/reset/${token}">link</a> to set a new password</p>
+  <p>CLick this <a href="https://place-o-share.web.app/reset/${token}">link</a> to set a new password</p>
   `,
         });
         console.log("Sent!");
