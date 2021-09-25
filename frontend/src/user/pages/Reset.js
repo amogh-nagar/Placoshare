@@ -1,5 +1,5 @@
-import React from 'react'
-import Card from '../../shared/components/UIElements/Card';
+import React from "react";
+import Card from "../../shared/components/UIElements/Card";
 import { VALIDATOR_EMAIL } from "../../shared/util/validators";
 import Button from "../../shared/components/FormElements/Button";
 import { useHttpClient } from "../../shared/hooks/http-hook";
@@ -8,10 +8,11 @@ import ErrorModal from "../../shared/components/UIElements/ErrorModal";
 import Input from "../../shared/components/FormElements/Input";
 import { useForm } from "../../shared/hooks/form-hook";
 import { useHistory } from "react-router";
-import "./Auth.css"
+import "./Auth.css";
 const Reset = () => {
-  const { isLoading, error, sendRequest, clearError } = useHttpClient();
-const history=useHistory()
+  const { isLoading, error, sendRequest, clearError, setError } =
+    useHttpClient();
+  const history = useHistory();
   const [formState, inputHandler, setFormData] = useForm(
     {
       email: {
@@ -36,15 +37,24 @@ const history=useHistory()
         }
       );
       console.log(responseData);
-      history.push('/')
+      setError("Kindly check your email");
     } catch (err) {
       console.log(err);
     }
   };
 
+  const clear = () => {
+    setError(null);
+    history.push("/");
+  };
+
   return (
     <>
-      <ErrorModal error={error} onClear={clearError} />
+      <ErrorModal
+        error={error}
+        onClear={clear}
+        header="Email has sent successfully"
+      />
       <Card className="authentication">
         {isLoading && <LoadingSpinner asOverlay />}
         <h2>Reset password</h2>

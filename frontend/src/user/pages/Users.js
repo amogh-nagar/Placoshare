@@ -7,6 +7,7 @@ import LoadingSpinner from "../../shared/components/UIElements/LoadingSpinner";
 import { useHttpClient } from "../../shared/hooks/http-hook";
 
 const Users = () => {
+  
   const { isLoading, error, sendRequest, clearError } = useHttpClient();
   const [loadedUsers, setLoadedUsers] = useState([]);
 
@@ -22,6 +23,9 @@ const Users = () => {
     };
     fetchUsers();
   }, [sendRequest]);
+
+
+
   useEffect(() => {
     const socket = openSocket("https://placeoshare.herokuapp.com", {
       transports: ["websocket"],
