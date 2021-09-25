@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
+import { useParams, useHistory } from "react-router-dom";
+
 import openSocket from "socket.io-client";
 import PlaceList from "../components/PlaceList";
 import ErrorModal from "../../shared/components/UIElements/ErrorModal";
@@ -8,8 +9,9 @@ import { useHttpClient } from "../../shared/hooks/http-hook";
 
 const UserPlaces = () => {
   const [loadedPlaces, setLoadedPlaces] = useState();
-  const { isLoading, error, sendRequest, clearError,setError } = useHttpClient();
-
+  const { isLoading, error, sendRequest, clearError, setError } =
+    useHttpClient();
+  const history = useHistory();
   const userId = useParams().userId;
 
   useEffect(() => {
@@ -34,8 +36,7 @@ const UserPlaces = () => {
         `https://placeoshare.herokuapp.com/api/places/user/${userId}`
       );
       const responseData = await response.json();
-      console.log('data',responseData);
-      if (responseData.places && responseData.places.length >= 0 ) {
+      if (responseData.places && responseData.places.length >= 0) {
         let updatedplaces = [...responseData.places];
 
         if (data.action === "create") {
@@ -53,9 +54,9 @@ const UserPlaces = () => {
           );
         }
         setLoadedPlaces(updatedplaces);
-      }else{
-        setError("No place found for this user")
-        setLoadedPlaces(null)
+      } else {
+        setError("No place found for this user");
+        setLoadedPlaces(null);
       }
     });
   }, []);
@@ -66,9 +67,13 @@ const UserPlaces = () => {
     );
   };
 
+  const clear = () => {
+    setError(null);
+    history.push("/");
+  };
   return (
     <>
-      <ErrorModal error={error} onClear={clearError} />
+      <ErrorModal error={error} onClear={clear} />
       {isLoading && (
         <div className="center">
           <LoadingSpinner />

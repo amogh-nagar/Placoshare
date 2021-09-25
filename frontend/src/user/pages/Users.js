@@ -18,7 +18,6 @@ const Users = () => {
           "https://placeoshare.herokuapp.com/api/users"
         );
         setLoadedUsers(responseData.users);
-        console.log("response", responseData.users);
       } catch (err) {}
     };
     fetchUsers();
@@ -32,9 +31,7 @@ const Users = () => {
     });
 
     socket.on("places", async (data) => {
-      console.log("data ", data);
       if (data.action === "create") {
-        console.log("inside", loadedUsers);
 
         const response = await fetch("https://placeoshare.herokuapp.com/api/users");
         const responseData = await response.json();
@@ -52,6 +49,8 @@ const Users = () => {
     });
 
   }, []);
+
+  
   return (
     <>
       <ErrorModal error={error} onClear={clearError} />

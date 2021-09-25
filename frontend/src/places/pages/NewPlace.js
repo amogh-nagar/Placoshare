@@ -54,7 +54,7 @@ const NewPlace = () => {
       await sendRequest('https://placeoshare.herokuapp.com/api/places', 'POST', formdata, {
         Authorization: 'Bearer ' + auth.token,
       });
-      history.push('/');
+      history.push('/'+auth.userId+'/places');
     } catch (err) {}
   };
 

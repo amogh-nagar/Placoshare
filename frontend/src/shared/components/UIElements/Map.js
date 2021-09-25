@@ -5,7 +5,6 @@ const Mapw = (props) => {
   const mapRef = useRef();
 
   const { center, zoom } = props;
-  // console.log(center);
   useEffect(() => {
     const map = new window.google.maps.Map(mapRef.current, {
       center: center,
@@ -14,7 +13,6 @@ const Mapw = (props) => {
     const infowindow = new window.google.maps.InfoWindow({
       content: props.description,
     });
-    console.log(map);
     const marker = new window.google.maps.Marker({
       position: center,
       map: map,
@@ -23,7 +21,7 @@ const Mapw = (props) => {
       infowindow.open({
         anchor: marker,
         map,
-        shouldFocus: false,
+        shouldFocus: true,
       });
     });
   }, [center, zoom]);
@@ -34,7 +32,6 @@ const Mapw = (props) => {
       className={`map ${props.className}`}
       style={props.style}
     ></div>
-    // <Map zoom={14} styles={mapstyles} initialCenter={center} />
   );
 };
 
