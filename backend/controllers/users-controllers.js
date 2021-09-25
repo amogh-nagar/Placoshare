@@ -10,7 +10,7 @@ const transporter = nodemailer.createTransport({
   service: "gmail",
   auth: {
     user: "amoghnagar1111@gmail.com",
-    pass: "123Mamta@",
+    pass: "123Sheru@",
   },
 });
 
@@ -107,13 +107,11 @@ const signup = async (req, res, next) => {
       html: "<h1>You successfully signed up</h1>",
     })
     .then(() => {
-      res
-        .status(201)
-        .json({
-          userId: createdUser.id,
-          email: createdUser.email,
-          token: token,
-        });
+      res.status(201).json({
+        userId: createdUser.id,
+        email: createdUser.email,
+        token: token,
+      });
     })
     .catch((err) => {
       console.log(err);
@@ -199,19 +197,25 @@ const reset = (req, res, next) => {
         return user.save();
       })
       .then((response) => {
-        transporter.sendMail({
-          to: req.body.email,
-          from: "amoghnagar1111@gmail.com",
-          subject: "Password reset",
-          html: `
+        transporter
+          .sendMail({
+            to: req.body.email,
+            from: "amoghnagar1111@gmail.com",
+            subject: "Password reset",
+            html: `
   <p>You requested password reset</p>
   <p>CLick this <a href="https://place-o-share.web.app/reset/${token}">link</a> to set a new password</p>
   `,
-        });
-        console.log("Sent!");
-        res.status(200).json({
-          message: "Email sent succesfully",
-        });
+          })
+          .then(() => {
+            res.status(200).json({
+              message: "Email sent succesfully",
+            });
+            console.log("Sent");
+          })
+          .catch((err) => {
+            console.log(err);
+          });
       })
       .catch((err) => {
         console.log(err);
