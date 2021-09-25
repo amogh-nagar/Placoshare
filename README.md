@@ -15,6 +15,7 @@ npm install
 npm start
 ```
 
+
 ## 📌 Tech Stack Used
 
 <ul>
@@ -35,6 +36,19 @@ npm start
 
 <br>
 
+
+## What did i learn ?
+<ul>
+<li>Integrating Maps</li>
+<li>Authentication - Using Jsonwebtoken/Sessions</li>
+<li>Sending Emails - NodeMailer/Sendgrid</li>
+<li>Sending/Storing Files - Multer</li>
+<li>Socket.io - How to set up event based communication</li>
+<li>Geocoding - How to convert Address into Geo coordinates </li>
+</ul>
+
+<br>
+
 ## Feature work
 
 <ol>
@@ -44,6 +58,22 @@ npm start
 </ol>
 
 <br>
+
+
+## Frontend quick navigation 
+```
+
+
+# [{Host_Name}]/ - Users list
+# [{Host_Name}]/:userId/places - Get Places of a specific user
+# [{Host_Name}]/places/:placesId - Get a particular place
+# [{Host_Name}]/places/new -  Add a new Place
+# [{Host_Name}]/places/:pid -  Delete a Place
+# [{Host_Name}]/auth -  Authentication page
+
+
+```
+
 
 ## Frontend structure
 

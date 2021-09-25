@@ -13,6 +13,22 @@ const app = express();
 
 
 
+
+//Production
+const helmet=require('helmet')
+const morgan=require('morgan')
+const compression=require('compression')
+const access=fs.createWriteStream(path.join(__dirname,'access.log'),{flags:'a'})
+app.use(helmet())
+app.use(compression())//compresses file size downloded from server //must if using heroku
+app.use(morgan('combined',{stream:access}))//logging requests
+
+
+
+
+
+
+
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 
