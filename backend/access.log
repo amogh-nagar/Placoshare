@@ -1,0 +1,1 @@
+::1 - - [26/Sep/2021:06:26:31 +0000] "OPTIONS /api/places HTTP/1.1" 200 4 "http://localhost:3000/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/93.0.4577.82 Safari/537.36"

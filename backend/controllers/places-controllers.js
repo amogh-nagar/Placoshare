@@ -1,4 +1,3 @@
-const uuid = require("uuid/v4");
 const io = require("../socket");
 const path = require("path");
 const { validationResult } = require("express-validator");
@@ -37,7 +36,6 @@ const getPlaceById = async (req, res, next) => {
 const getPlacesByUserId = async (req, res, next) => {
   const userId = req.params.uid;
 
-  // let places;
   let userWithPlaces;
   try {
     userWithPlaces = await User.findById(userId).populate("places");
@@ -49,7 +47,6 @@ const getPlacesByUserId = async (req, res, next) => {
     return next(error);
   }
 
-  // if (!places || places.length === 0) {
   if (!userWithPlaces || userWithPlaces.places.length === 0) {
     return next(
       new HttpError("Could not find places for the provided user id.", 404)
@@ -79,7 +76,6 @@ const createPlace = async (req, res, next) => {
   } catch (error) {
     return next(error);
   }
-
   const createdPlace = new Place({
     title,
     description,
@@ -119,7 +115,7 @@ const createPlace = async (req, res, next) => {
     );
     return next(error);
   }
-  io.getio().emit("places", {
+  io.getio().broadcast.emit("places", {
     action: "create",
     place: createPlace,
     user:user
@@ -164,7 +160,7 @@ const updatePlace = async (req, res, next) => {
     );
     return next(error);
   }
-  io.getio().emit("places", {
+  io.getio().broadcast.emit("places", {
     action: "update",
     place: place,
   });
@@ -213,7 +209,7 @@ const deletePlace = async (req, res, next) => {
     );
     return next(error);
   }
-  io.getio().emit("places", {
+  io.getio().broadcast.emit("places", {
     action: "delete",
     place: place,
   });
