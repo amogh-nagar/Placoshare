@@ -27,7 +27,7 @@ const Reset = () => {
     event.preventDefault();
     try {
       const responseData = await sendRequest(
-        "http://localhost:5000/api/users/reset",
+        "https://placeoshare.herokuapp.com/api/users/reset",
         "POST",
         JSON.stringify({
           email: formState.inputs.email.value,
