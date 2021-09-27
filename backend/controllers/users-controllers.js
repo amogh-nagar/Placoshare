@@ -14,10 +14,6 @@ const transporter = nodemailer.createTransport({
   },
 });
 
-// const sgmail = require("@sendgrid/mail");
-// sgmail.setApiKey(
-//   "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"
-// );
 
 const getUsers = async (req, res, next) => {
   let users;
@@ -182,6 +178,7 @@ const reset = (req, res, next) => {
       return next(error);
     }
     const token = buffer.toString("hex");
+   
     User.findOne({ email: req.body.email })
       .then((user) => {
         if (!user) {
